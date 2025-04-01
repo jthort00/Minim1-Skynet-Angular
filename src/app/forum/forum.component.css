@@ -53,10 +53,18 @@
 
 .post-reactions {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
-  font-size: 1rem;
-  color: #555;
+}
+
+.reaction {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  color: #333;
 }
 
 .likes {

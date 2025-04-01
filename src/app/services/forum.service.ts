@@ -28,13 +28,14 @@ export class ForumService {
       );
     }
 
-    getReactions(postId: string): Observable<{ likes: number; dislikes: number }> {
-        const url = `${this.apiUrl}/reaction/${postId}`;
+    getReactions(postId: string): Observable<string[]> {
+        const url = `${this.apiUrl}/reactions/${postId}`;
         return this.http.get<any[]>(url).pipe(
           map((reactions) => {
-            const likes = reactions.filter((reaction) => reaction.reactionType == 'like').length;
-            const dislikes = reactions.filter((reaction) => reaction.reactionType == 'dislike').length;
-            return { likes, dislikes };
+            console.log(`Reactions for post ${postId}:`, reactions); // Debugging
+            return reactions
+              .filter((reaction) => reaction.postId === postId) // Ensure reactions belong to the correct post
+              .map((reaction) => reaction.reactionType); // Extract reactionType
           })
         );
       }

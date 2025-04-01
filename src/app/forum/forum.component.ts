@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 export class ForumComponent implements OnInit {
   posts: ForumPost[] = [];
 
-  //constructor(private forumService: ForumService) {}
+  constructor(private forumService: ForumService) {}
 
   ngOnInit(): void {
     this.forumService.getPosts().subscribe((posts) => {
@@ -21,17 +21,13 @@ export class ForumComponent implements OnInit {
 
       // Fetch reactions for each post
       this.posts.forEach((post) => {
-        this.forumService.getReactions(post.postId).subscribe((reactions) => {
-          post.likes = reactions.likes;
-          post.dislikes = reactions.dislikes;
-          
+        this.forumService.getReactions(post.postId).subscribe((reactionTypes) => {
+          console.log(`Reactions for post ${post.postId}:`, reactionTypes); // Debugging
+          post.reactions = reactionTypes; // Assign the array of reactionType values
         });
-        
       });
     });
   }
-  constructor(private forumService: ForumService) {}
-
 }
 
 

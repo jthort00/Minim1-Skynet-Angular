@@ -8,8 +8,10 @@
       </div>
       <p class="post-comment">{{ post.comment }}</p>
       <div class="post-reactions">
-        <span class="likes">👍 {{ post.likes || 0 }}</span>
-        <span class="dislikes">👎 {{ post.dislikes || 0 }}</span>
+        <h3 class="reactions-title">Reactions that other users have sent:</h3> <!-- Added title for reactions -->
+        <span *ngFor="let reaction of post.reactions" class="reaction">
+          {{ reaction }}
+        </span>
       </div>
     </div>
   </div>

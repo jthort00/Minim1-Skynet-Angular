@@ -2,8 +2,7 @@ export interface ForumPost {
   postId: string;
   name: string;
   comment: string;
-  likes?: number; // Optional property for likes
-  dislikes?: number; // Optional property for dislikes
+  reactions?: string[]; 
 }
 
 
@@ -11,14 +10,11 @@ export class ForumModel implements ForumPost {
   postId: string;
   name: string;
   comment: string;
-  likes?: number; // Optional property for likes
-  dislikes?: number;
+  reactions?: string[]; // Optional property for likes
 
-  constructor(postId: string, name: string, comment: string, likes?: number, dislikes?: number) {
+  constructor(postId: string, name: string, comment: string, reactions?: string[]) {
     this.postId = postId;
     this.name = name;
     this.comment = comment;
-    this.likes = likes || 0; // Default value for likes
-    this.dislikes = dislikes || 0; // Default value for dislikes
-  }
+    this.reactions = reactions;}
 }
