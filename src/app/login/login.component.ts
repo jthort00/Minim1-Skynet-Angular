@@ -35,7 +35,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(payload).subscribe({
       next: (res: any) => {
         alert(res.message || 'Login exitoso');
-        this.router.navigate(['/home']);
+        //this.router.navigate(['/home']);
+        this.router.navigate(['/forum']);
       },
       error: (err: any) => {
         console.error(err);
