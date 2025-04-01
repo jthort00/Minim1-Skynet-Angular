@@ -13,13 +13,25 @@ import { CommonModule } from '@angular/common';
 export class ForumComponent implements OnInit {
   posts: ForumPost[] = [];
 
-  constructor(private forumService: ForumService) {}
+  //constructor(private forumService: ForumService) {}
 
   ngOnInit(): void {
     this.forumService.getPosts().subscribe((posts) => {
       this.posts = posts;
+
+      // Fetch reactions for each post
+      this.posts.forEach((post) => {
+        this.forumService.getReactions(post.postId).subscribe((reactions) => {
+          post.likes = reactions.likes;
+          post.dislikes = reactions.dislikes;
+          
+        });
+        
+      });
     });
   }
+  constructor(private forumService: ForumService) {}
+
 }
 
 

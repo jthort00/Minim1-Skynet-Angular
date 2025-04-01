@@ -4,9 +4,13 @@
     <div *ngFor="let post of posts" class="post-card">
       <div class="post-header">
         <h2 class="post-title">{{ post.name }}</h2>
-        <small class="post-id">#{{ post.id }}</small>
+        <small class="post-id">#{{ post.postId }}</small>
       </div>
       <p class="post-comment">{{ post.comment }}</p>
+      <div class="post-reactions">
+        <span class="likes">👍 {{ post.likes || 0 }}</span>
+        <span class="dislikes">👎 {{ post.dislikes || 0 }}</span>
+      </div>
     </div>
   </div>
   <ng-template #noPosts>
