@@ -2,69 +2,89 @@
   padding: 20px;
   max-width: 800px;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   color: #333;
+  background-color: #f8f9fa; /* Light background for the forum */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .forum-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #007bff;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .posts-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .post-card {
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .post-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .post-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #333;
   margin: 0;
+  font-weight: bold;
 }
 
 .post-id {
   font-size: 0.9rem;
-  color: #888;
+  color: #6c757d;
 }
 
 .post-comment {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #495057;
+  margin-bottom: 15px;
 }
 
 .post-reactions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.reactions-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #495057;
+  margin-right: 10px;
 }
 
 .reaction {
-  background-color: #f1f1f1;
-  border: 1px solid #ddd;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
   border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 0.9rem;
-  color: #333;
+  padding: 5px 15px;
+  font-size: 1rem;
+  color: #495057;
+  font-weight: bold;
 }
 
 .likes {
@@ -75,9 +95,31 @@
   color: #dc3545; /* Red for dislikes */
 }
 
+.reaction-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.reaction-buttons button {
+  padding: 8px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.reaction-buttons button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
 .no-posts-message {
   text-align: center;
-  font-size: 1.2rem;
-  color: #888;
-  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #6c757d;
+  margin-top: 30px;
 }

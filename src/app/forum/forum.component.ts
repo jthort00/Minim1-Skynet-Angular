@@ -22,8 +22,19 @@ export class ForumComponent implements OnInit {
       // Fetch reactions for each post
       this.posts.forEach((post) => {
         this.forumService.getReactions(post.postId).subscribe((reactionTypes) => {
-          console.log(`Reactions for post ${post.postId}:`, reactionTypes); // Debugging
-          post.reactions = reactionTypes; // Assign the array of reactionType values
+          const reactionCounts = reactionTypes.reduce(
+            (counts, reaction) => {
+              if (reaction === 'like') {
+                counts.likes++;
+              } else if (reaction === 'dislike') {
+                counts.dislikes++;
+              }
+              return counts;
+            },
+            { likes: 0, dislikes: 0 }
+          );
+          post.likes = reactionCounts.likes;
+          post.dislikes = reactionCounts.dislikes;
         });
       });
     });
