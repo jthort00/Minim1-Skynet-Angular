@@ -12,6 +12,10 @@
         <span class="likes">👍 {{ post.likes || 0 }}</span>
         <span class="dislikes">👎 {{ post.dislikes || 0 }}</span>
       </div>
+      <div class="reaction-buttons">
+        <button (click)="addReaction(post, 'like')">👍 Like</button>
+        <button (click)="addReaction(post, 'dislike')">👎 Dislike</button>
+      </div>
     </div>
   </div>
   <ng-template #noPosts>

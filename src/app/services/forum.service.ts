@@ -39,4 +39,10 @@ export class ForumService {
           })
         );
       }
+
+    addReaction(postId: string, userId: string, reactionType: string): Observable<any> {
+        const url = `${this.apiUrl}/reactions`;
+        const body = { postId, userId, reactionType };
+        return this.http.post(url, body);
+    }
 }
